@@ -3,6 +3,7 @@ from rest_framework.response import Response
 from rest_framework import status
 from .serializers import ElprimoSerializer, DirectorSerializer, ReviewSerializer
 from .models import Elprimo, Director, Review
+from django.db.models import Avg
 
 @api_view(['GET'])
 def elprimo_list_api_view(request):
@@ -51,6 +52,11 @@ def review_detail_api_view(request, id):
                         status=status.HTTP_404_NOT_FOUND)
     serializer = ReviewSerializer(review, many = False)
     return Response(data=serializer.data)
+
+@api_view(['GET'])
+def average_stars(request):
+    average = Review.objects.aggregate(Avg('stars'))
+    return Response({'average_rating' : average})
 
 
 @api_view(['GET', 'POST'])

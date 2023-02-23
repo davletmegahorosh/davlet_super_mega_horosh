@@ -23,6 +23,7 @@ urlpatterns = [
 
     path('api/v1/elprimos/', views.elprimo_list_api_view),
     path('api/v1/elprimos/<int:id>/', views.elprimo_detail_api_view),
+    path('api/v1/elprimos/reviews/', views.average_stars),
 
     path('api/v1/directors/', views.directors_list_api_view),
     path('api/v1/directors/<int:id>/', views.director_detail_api_view),
