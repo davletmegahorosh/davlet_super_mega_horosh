@@ -40,7 +40,14 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     'elreiprimo',
+    'elprimo_user',
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUNTHETICATION_CLASSES' : [
+        'rest_framework.authentication.TokenAuntheticate'
+    ]
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

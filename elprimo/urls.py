@@ -15,7 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from elreiprimo import views
+from elreiprimo import views, directors_views, reviews_views
+from elprimo_user import views as el_user
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -23,11 +24,15 @@ urlpatterns = [
 
     path('api/v1/elprimos/', views.elprimo_list_api_view),
     path('api/v1/elprimos/<int:id>/', views.elprimo_detail_api_view),
-    path('api/v1/elprimos/reviews/', views.average_stars),
+    path('api/v1/elprimos/reviews/', reviews_views.average_stars),
 
-    path('api/v1/directors/', views.directors_list_api_view),
-    path('api/v1/directors/<int:id>/', views.director_detail_api_view),
+    path('api/v1/directors/', directors_views.directors_list_api_view),
+    path('api/v1/directors/<int:id>/', directors_views.director_detail_api_view),
 
-    path('api/v1/reviews/', views.review_list_api_view),
-    path('api/v1/reviews/<int:id>/', views.review_detail_api_view),
+    path('api/v1/reviews/', reviews_views.review_list_api_view),
+    path('api/v1/reviews/<int:id>/', reviews_views.review_detail_api_view),
+
+    path('api/v1/users/registration/', el_user.registration_view),
+    path('api/v1/users/authorization/', el_user.authorization_view),
+    path('api/v1/users/confirm/'), el_user.confirm_view,
 ]
