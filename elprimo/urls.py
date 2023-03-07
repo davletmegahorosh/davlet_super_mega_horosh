@@ -34,5 +34,5 @@ urlpatterns = [
 
     path('api/v1/users/registration/', el_user.registration_view),
     path('api/v1/users/authorization/', el_user.authorization_view),
-    path('api/v1/users/confirm/'), el_user.confirm_view,
+    path('api/v1/users/confirm/', el_user.confirm_view),
 ]
