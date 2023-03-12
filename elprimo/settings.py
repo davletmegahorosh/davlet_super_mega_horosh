@@ -46,7 +46,8 @@ INSTALLED_APPS = [
 REST_FRAMEWORK = {
     'DEFAULT_AUNTHETICATION_CLASSES' : [
         'rest_framework.authentication.TokenAuntheticate'
-    ]
+    ],
+    'PAGE_SIZE' : 3
 }
 
 MIDDLEWARE = [
